@@ -159,7 +159,7 @@ class Quote(commands.Cog):
         else:
             # Fill out footer info: Date and text channel
             # TODO: Add message ID?
-            e.set_footer(text=f"{datetime.now(timezome.est).strftime('%b. %d, %Y, %I:%M %p')}")
+            e.set_footer(text=f"{datetime.now(timezone.est).strftime('%b. %d, %Y, %I:%M %p')}")
 
         try:
             quote_msg = await quote_channel.send(embed=e)
