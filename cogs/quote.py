@@ -37,8 +37,8 @@ class Quote(commands.Cog):
             str: String representing locale's date and time representation.
         """
         # Automatically determine time zones.
-        from_zone = tz.tzutc()
-        to_zone = tz.tzlocal()
+        from_zone = tz.gettz('UTC')
+        to_zone = tz.gettz('America/New_York')
 
         # Convert UTC message timestamp to local time.
         utc = msg_timestamp.replace(tzinfo=from_zone)
