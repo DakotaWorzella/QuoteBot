@@ -1,6 +1,3 @@
-## Sensitive data
-quotebot.db
-
 ## ST3 files
 *.sublime-project
 *.sublime-workspace
