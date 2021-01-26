@@ -1,5 +1,6 @@
 import discord
 import re
+import os
 from datetime import datetime
 from dateutil import tz
 from discord.ext import commands
@@ -78,8 +79,10 @@ class Quote(commands.Cog):
 
         # Counter for successful quotes
         num_quoted = 0
-
-        msg_id = msg_ids[0]
+        print(msg_ids)
+        msg_id = ' '.join(msg_ids[:-1])
+        print(msg_id)
+        os.system("pause")
         # If we're quoting a lot of messages, it'll take a while before
         # confirmation is posted. Trigger typing in the meantime.
         await ctx.channel.trigger_typing()
@@ -100,7 +103,7 @@ class Quote(commands.Cog):
                 user = self.bot.get_user(msg.author.id)
             else:
                 message = msg_id
-                user_id = int("".join(filter(str.isdigit, msg_ids[1])))
+                user_id = int("".join(filter(str.isdigit, msg_ids[-1])))
                 user = self.bot.get_user(user_id)
         except discord.NotFound:
             await ctx.send(f"No message exists with ID `{msg_id}`.")
