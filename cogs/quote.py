@@ -80,7 +80,10 @@ class Quote(commands.Cog):
         # Counter for successful quotes
         num_quoted = 0
         print(msg_ids)
-        msg_id = ' '.join(msg_ids[:-1])
+        if msg_ids[0].isnumeric():
+            msg_id = msg_ids[0]
+        else:
+            msg_id = ' '.join(msg_ids[:-1])
         print(msg_id)
         os.system("pause")
         # If we're quoting a lot of messages, it'll take a while before
